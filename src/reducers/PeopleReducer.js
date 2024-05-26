@@ -20,6 +20,18 @@ export default (state = initialState, action) => {
                 ...state,
                 people: action.payload
             }
+        case 'SELECTED_PERSON':
+            return {
+                ...state,
+                detailView: true,
+                personSelected: action.selectId
+            }
+        case 'NONE_SELECTED':
+            return {
+                ...state,
+                detailView: false,
+                personSelected: null,
+            }
         default:
             return state;
     }
