@@ -57,6 +57,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 toUpdate: true,
+                detailView: false,
+                personSelected: null,
                 firstName: action.payload.firstName,
                 lastName: action.payload.lastName,
                 phone: action.payload.phone,

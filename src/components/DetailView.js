@@ -138,21 +138,21 @@ class DetailView extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <Image
-                                source={require('../images/email.png')} 
+                                source={require('../images/sms.png')} 
                                 style={styles.actionImage}
                             />
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <Image
-                                source={require('../images/sms.png')} 
+                                source={require('../images/email.png')} 
                                 style={styles.actionImage}
                             />
                         </TouchableOpacity>
                     </View>
                     <View style={styles.actionArea}>
                         <Text>Call</Text>
-                        <Text>Email</Text>
                         <Text>SMS</Text>
+                        <Text>Email</Text>
                     </View>
                 </ScrollView>
             </View>

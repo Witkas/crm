@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 50,
         paddingLeft: 10,
+        paddingLeft: 20,
         paddingRight: 20,
         justifyContent: 'space-between',
     },
@@ -23,9 +24,9 @@ const styles = StyleSheet.create({
 
 class AddPerson extends Component {
     onAddPress() {
-        const { firstName, lastName, phone, email, company, project, notes} = this.props;
+        const { firstName, lastName, phone, email, company, project, notes } = this.props;
 
-        this.props.createNewContact({ firstName, lastName, phone, email, company, project, notes});
+        this.props.createNewContact({ firstName, lastName, phone, email, company, project, notes });
 
         this.props.navigation.navigate('People');
     }
@@ -35,50 +36,50 @@ class AddPerson extends Component {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.form}>
                     <Text>Add a new contact</Text>
-                    <TextInput
+                    <TextInput 
                         label='First name...'
                         style={styles.fieldStyles}
                         value={this.props.firstName}
                         onChangeText={value => this.props.formUpdate({ prop: 'firstName', value})}
                     />
-                    <TextInput
+                    <TextInput 
                         label='Last name...'
                         style={styles.fieldStyles}
                         value={this.props.lastName}
                         onChangeText={value => this.props.formUpdate({ prop: 'lastName', value})}
                     />
-                    <TextInput
+                    <TextInput 
                         label='Phone number...'
                         style={styles.fieldStyles}
                         value={this.props.phone}
                         onChangeText={value => this.props.formUpdate({ prop: 'phone', value})}
                     />
-                    <TextInput
+                    <TextInput 
                         label='Email...'
                         style={styles.fieldStyles}
                         value={this.props.email}
                         onChangeText={value => this.props.formUpdate({ prop: 'email', value})}
                     />
-                    <TextInput
+                    <TextInput 
                         label='Company...'
                         style={styles.fieldStyles}
                         value={this.props.company}
                         onChangeText={value => this.props.formUpdate({ prop: 'company', value})}
                     />
-                    <TextInput
+                    <TextInput 
                         label='Project...'
                         style={styles.fieldStyles}
                         value={this.props.project}
                         onChangeText={value => this.props.formUpdate({ prop: 'project', value})}
                     />
-                    <TextInput
+                    <TextInput 
                         label='Notes...'
                         style={styles.fieldStyles}
                         value={this.props.notes}
                         onChangeText={value => this.props.formUpdate({ prop: 'notes', value})}
                     />
                     <View style={styles.addButton}>
-                        <Button title='Add' color='#4db6ac' onPress={this.onAddPress.bind(this)} />
+                        <Button title='Add' color='#4db6ac' onPress={this.onAddPress.bind(this)}/>
                     </View>
                 </View>
             </ScrollView>
@@ -87,8 +88,8 @@ class AddPerson extends Component {
 }
 
 const mapStateToProps = state => {
-    const { firstName, lastName, phone, email, company, project, notes} = state;
-    return { firstName, lastName, phone, email, company, project, notes}
+    const { firstName, lastName, phone, email, company, project, notes } = state;
+    return { firstName, lastName, phone, email, company, project, notes };
 }
 
 export default connect(mapStateToProps, actions)(AddPerson);

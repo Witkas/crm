@@ -26,15 +26,13 @@ class UpdatePerson extends Component {
         const { firstName, lastName, phone, email, company, project, notes, _id} = this.props;
 
         this.props.saveContact({ firstName, lastName, phone, email, company, project, notes, _id});
-
-        this.props.navigation.navigate('People');
     }
 
     render() {
         return (
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.form}>
-                    <Text>Update a contact</Text>
+                    <Text>Update contact</Text>
                     <TextInput
                         label='First name...'
                         style={styles.fieldStyles}
@@ -68,7 +66,7 @@ class UpdatePerson extends Component {
                     <TextInput
                         label='Project...'
                         style={styles.fieldStyles}
-                        value={this.props.firstName}
+                        value={this.props.project}
                         onChangeText={value => this.props.formUpdate({ prop: 'project', value})}
                     />
                     <TextInput
@@ -78,7 +76,7 @@ class UpdatePerson extends Component {
                         onChangeText={value => this.props.formUpdate({ prop: 'notes', value})}
                     />
                     <View style={styles.updateButton}>
-                        <Button title='Update' color='#4db6ac' onPress={this.UpdatePerson.bind(this)} />
+                        <Button title='Update' color='#4db6ac' onPress={this.onUpdatePress.bind(this)} />
                     </View>
                 </View>
             </ScrollView>

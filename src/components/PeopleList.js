@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, Text, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PeopleItem from './PeopleItem';
-import PeopleDetails from './PeopleDetail';
+import PeopleDetail from './PeopleDetail';
 import { loadInitialContacts } from '../actions';
 
 const styles = StyleSheet.create({
     container: {
         paddingTop: 80,
+    },
+    testStyle: {
+        backgroundColor: 'black',
+        fontSize: 100,
     }
 })
 
@@ -19,7 +23,7 @@ class PeopleList extends Component {
     renderInitialView() {
         if (this.props.detailView === true) {
             return (
-                <PeopleDetails />
+                <PeopleDetail />
             )
         } else {
             return (
@@ -33,9 +37,11 @@ class PeopleList extends Component {
     }
 
     render() {
+        return (
         <View style={styles.container}>
             {this.renderInitialView()}
         </View>
+        )
     }
 }
 
