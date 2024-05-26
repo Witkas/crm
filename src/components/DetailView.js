@@ -81,11 +81,90 @@ const styles = StyleSheet.create({
 })
 
 class UpdatePerson extends Component {
+    updateTest() {
+        this.props.updateContact(this.props.person);
+    }
+
     render() {
         return (
-            <View></View>
-        )
+            <View style={styles.container}>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <Image
+                        source={require('../images/background.jpg')}
+                        style={styles.image}
+                    />
+                    <EvilIcon name={'user'} size={100} style={styles.icon} />
+                    <SimpleIcon name={'close'} size={30} style={styles.closeIcon}
+                        onPress={() => this.props.noneSelected()}
+                    />
+                    <Text style={styles.title1}>{this.props.person.firstName} {this.props.person.lastName}</Text>
+                    <Text style={styles.title2}>{this.props.person.company}</Text>
+                    <View style={styles.textArea}>
+                        <MaterialIcon name={'phone'} size={40} style={styles.textIcons} />
+                        <Text style={styles.finalText}>{this.props.person.phone}</Text>
+                    </View>
+                    <View style={styles.textArea}>
+                        <MaterialIcon name={'email'} size={40} style={styles.textIcons} />
+                        <Text style={styles.finalText}>{this.props.person.email}</Text>
+                    </View>
+                    <View style={styles.textArea}>
+                        <MaterialIcon name={'assignment'} size={40} style={styles.textIcons} />
+                        <Text style={styles.finalText}>{this.props.person.project}</Text>
+                    </View>
+                    <View style={styles.textArea}>
+                        <MaterialIcon name={'edit'} size={40} style={styles.textIcons} />
+                        <Text style={styles.finalText}>{this.props.person.notes}</Text>
+                    </View>
+                    <View style={styles.editDeleteArea}>
+                        <TouchableOpacity style={styles.sections}
+                            onPress={() => {this.updateTest();}}
+                        >
+                            <MaterialIcon name={'autorenew'} size={40} style={styles.editIcon} />
+                            <Text style={styles.finalText}>EDIT</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.sections}
+                            onPress={() => {this.props.deleteContact(this.props.person._id);}}
+                        >
+                            <MaterialIcon name={'delete-forever'} size={40} style={styles.editIcon} />
+                            <Text style={styles.finalText}>DELETE</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.actionArea}>
+                        <TouchableOpacity>
+                            <Image
+                                source={require('../images/call.png')} 
+                                style={styles.actionImage}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Image
+                                source={require('../images/email.png')} 
+                                style={styles.actionImage}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Image
+                                source={require('../images/sms.png')} 
+                                style={styles.actionImage}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.actionArea}>
+                        <Text>Call</Text>
+                        <Text>Email</Text>
+                        <Text>SMS</Text>
+                    </View>
+                </ScrollView>
+            </View>
+        );
     }
 }
 
-export default UpdatePerson;
+const mapStateToProps = state => {
+    return {
+        person: state.personSelected,
+        toUpdate: state.toUpdate,
+    }
+}
+
+export default connect(mapStateToProps, actions)(DetailView);
