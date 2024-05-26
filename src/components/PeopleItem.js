@@ -1,4 +1,4 @@
-import React, { Component, component } from 'react';
+import React, { Component } from 'react';
 import { Text, View, StyleSheet, Image, TouchableWithoutFeedback, Touchable } from 'react-native';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/EvilIcons';

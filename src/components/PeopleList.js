@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import PeopleItem from './PeopleItem';
 import PeopleDetails from './PeopleDetail';
@@ -16,14 +16,26 @@ class PeopleList extends Component {
         this.props.loadInitialContacts();
     }
 
+    renderInitialView() {
+        if (this.props.detailView === true) {
+            return (
+                <PeopleDetails />
+            )
+        } else {
+            return (
+                <FlatList
+                    data={this.props.people}
+                    renderItem={({item}) => <PeopleItem people={item} />}
+                    keyExtractor={(item, index) => index.toString()}
+                />
+            )
+        }
+    }
+
     render() {
-        return (
-            <FlatList
-                data={this.props.people}
-                renderItem={({item}) => <PeopleItem people={item} />}
-                keyExtractor={(item, index) => index.toString()}
-            />
-        )
+        <View style={styles.container}>
+            {this.renderInitialView()}
+        </View>
     }
 }
 

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Flatlist } from 'react-native';
 
-class PeopleDetail extends Component {
+class UpdatePerson extends Component {
     render() {
         return (
-            <View>Hello</View>
+            <View></View>
         )
     }
 }
 
-export default PeopleDetail;
+export default UpdatePerson;
