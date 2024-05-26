@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     }
 })
 
-class UpdatePerson extends Component {
+class DetailView extends Component {
     updateTest() {
         this.props.updateContact(this.props.person);
     }
