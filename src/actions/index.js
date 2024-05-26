@@ -1,5 +1,3 @@
-import { first } from "lodash"
-
 export const selectPerson = (peopleId) => {
     return {
         type: 'SELECTED_PERSON',
