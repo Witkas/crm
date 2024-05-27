@@ -72,7 +72,10 @@ export const saveContact = ({ firstName, lastName, phone, email, company, projec
             }
         })
         .then(() => {
-            dispatch({ type: 'SAVE_CONTACT'});
+            dispatch({ 
+                type: 'SAVE_CONTACT',
+                payload: { firstName, lastName, phone, email, company, project, notes, _id },
+            });
         })
         .then(() => {
             dispatch(loadInitialContacts());

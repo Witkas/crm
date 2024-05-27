@@ -31,6 +31,13 @@ export default (state = initialState, action) => {
                 ...state,
                 detailView: false,
                 personSelected: null,
+                firstName: '',
+                lastName: '',
+                phone: '',
+                email: '',
+                company: '',
+                project: '',
+                notes: '',
             }
         case 'FORM_UPDATE':
             return {
@@ -57,8 +64,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 toUpdate: true,
-                detailView: false,
-                personSelected: null,
+                detailView: true,
                 firstName: action.payload.firstName,
                 lastName: action.payload.lastName,
                 phone: action.payload.phone,
@@ -69,18 +75,21 @@ export default (state = initialState, action) => {
                 _id: action.payload._id,
             }
         case 'SAVE_CONTACT':
+            // console.log(action);
             return {
                 ...state,
                 toUpdate: false,
-                detailView: false,
-                firstName: action.payload.firstName,
-                lastName: action.payload.lastName,
-                phone: action.payload.phone,
-                email: action.payload.email,
-                company: action.payload.company,
-                project: action.payload.project,
-                notes: action.payload.notes,
-                _id: action.payload._id,
+                detailView: true,
+                personSelected: { 
+                    firstName: action.payload.firstName,
+                    lastName: action.payload.lastName,
+                    phone: action.payload.phone,
+                    email: action.payload.email,
+                    company: action.payload.company,
+                    project: action.payload.project,
+                    notes: action.payload.notes,
+                    _id: action.payload._id,
+                },
             }
         case 'DELETE_CONTACT':
             return {
